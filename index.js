@@ -39,10 +39,10 @@ function updateGameArea() {
   let i = index;
   while ((i < chords.length) && 
     (chords[i][0].ticks - time < myGameArea.canvas.width)) {
+
     // draw game piece
 
     // need to determine what noteWidth should be
-    
     // find shortest note in chord:
     let minDuration = Infinity;
     for (let j = 0; j < chords[i].length; j++) {
@@ -58,16 +58,56 @@ function updateGameArea() {
       }
     }
 
-    ctx.fillStyle = "blue";
-    ctx.fillRect(chords[i][0].ticks - time, 0, minDuration, 
-      myGameArea.canvas.height);
-  
+    //ctx.rect(chords[i][0].ticks - time, 0, minDuration, 
+    //  myGameArea.canvas.height);
+
+    //ctx.fillStyle = "cyan";
+    //ctx.fillRect(chords[i][0].ticks - time, 0, minDuration, 
+    //  myGameArea.canvas.height);
+
+    
+    // determine line width / height
+    // should always visually appear to be 5 pixels
+    const lineHeight = 5 / myGameArea.canvas.clientHeight
+      * myGameArea.canvas.height;
+    const lineWidth = 5 / myGameArea.canvas.clientWidth 
+      * myGameArea.canvas.width;
+
+    const x = chords[i][0].ticks - time;
+
     // draw pointer
     if (i === index) {
       ctx.fillStyle = "red";
-      ctx.fillRect(0, 0, minDuration, myGameArea.canvas.height);    
+      ctx.fillRect(0, 0, minDuration, myGameArea.canvas.height); 
+      ctx.fillStyle = "black";
+      ctx.fillRect(x, 0, lineWidth, myGameArea.canvas.height); // left edge
     }
 
+    ctx.fillStyle = "black";
+    ctx.fillRect(x, 0, minDuration, lineHeight); // top edge
+    ctx.fillRect(x, myGameArea.canvas.height - lineHeight, minDuration, 
+      lineHeight); // bottom edge
+    ctx.fillRect(x + minDuration, 0, lineWidth, 
+      myGameArea.canvas.height); // right edge
+
+    /*
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 1;
+
+    ctx.beginPath();
+    ctx.moveTo(x, 0 + ctx.lineWidth);
+    ctx.lineTo(x + minDuration, 0);
+    ctx.stroke();
+    ctx.lineTo(x + minDuration, myGameArea.canvas.height);
+    ctx.stroke();
+    ctx.lineTo(0, myGameArea.canvas.height);
+    ctx.stroke();
+
+    //ctx.lineWidth = 5;
+    //ctx.strokeStyle = "black";
+    //ctx.stroke();
+    */
+    
     // increment i
     i++;
   }
@@ -218,7 +258,7 @@ function setup(arrayBuffer) {
   }
   chords = getChords(notes);
 
-  // calculate the minimum distance
+  // calculate the minimum distance (between two consecutive chords)
   minDistance = 10000;
   for (let i = 1; i < chords.length; i++) {
     const distance = chords[i][0].ticks - chords[i-1][0].ticks;
@@ -243,8 +283,13 @@ for (let et of ["down","up"]) {
 byId("start").addEventListener("click", start);
 
 function resize() {
+  // resize tap pad
   document.getElementsByClassName("wrapper")[0].style.height = 
     (window.innerHeight - 17)  + "px";
+  // redraw canvas
+  if (chords.length > 0) {
+    updateGameArea();
+  }
 }
 
 resize();
