@@ -32,7 +32,6 @@ function updateGameArea() {
   // loop through chords
   const time = chords[index][0].ticks;
   const ctx = myGameArea.context;
-  ctx.fillStyle = "blue";
 
   // starts by drawing the current chord (index i)
   // then continues to draw chords (as tick-marks on the page)
@@ -41,16 +40,41 @@ function updateGameArea() {
   while ((i < chords.length) && 
     (chords[i][0].ticks - time < myGameArea.canvas.width)) {
     // draw game piece
-    ctx.fillRect(chords[i][0].ticks - time, 0, noteWidth, 
+
+    // need to determine what noteWidth should be
+    
+    // find shortest note in chord:
+    let minDuration = Infinity;
+    for (let j = 0; j < chords[i].length; j++) {
+      if (chords[i][j].durationTicks < minDuration) {
+        minDuration = chords[i][j].durationTicks;
+      }
+    }
+
+    if (i < chords.length - 1) {
+      const timeTillNextNote = chords[i+1][0].ticks - chords[i][0].ticks;
+      if (timeTillNextNote < minDuration) {
+        minDuration = timeTillNextNote;
+      }
+    }
+
+    ctx.fillStyle = "blue";
+    ctx.fillRect(chords[i][0].ticks - time, 0, minDuration, 
       myGameArea.canvas.height);
   
+    // draw pointer
+    if (i === index) {
+      ctx.fillStyle = "red";
+      ctx.fillRect(0, 0, minDuration, myGameArea.canvas.height);    
+    }
+
     // increment i
     i++;
   }
 
   // draw pointer
-  ctx.fillStyle = "red";
-  ctx.fillRect(0, 0, noteWidth, myGameArea.canvas.height);
+  //ctx.fillStyle = "red";
+  //ctx.fillRect(0, 0, noteWidth, myGameArea.canvas.height);
 }
 
 startGame();
