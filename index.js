@@ -58,9 +58,6 @@ function updateGameArea() {
       }
     }
 
-    //ctx.rect(chords[i][0].ticks - time, 0, minDuration, 
-    //  myGameArea.canvas.height);
-
     //ctx.fillStyle = "cyan";
     //ctx.fillRect(chords[i][0].ticks - time, 0, minDuration, 
     //  myGameArea.canvas.height);
@@ -79,42 +76,19 @@ function updateGameArea() {
     if (i === index) {
       ctx.fillStyle = "red";
       ctx.fillRect(0, 0, minDuration, myGameArea.canvas.height); 
-      ctx.fillStyle = "black";
-      ctx.fillRect(x, 0, lineWidth, myGameArea.canvas.height); // left edge
     }
 
     ctx.fillStyle = "black";
     ctx.fillRect(x, 0, minDuration, lineHeight); // top edge
     ctx.fillRect(x, myGameArea.canvas.height - lineHeight, minDuration, 
       lineHeight); // bottom edge
+    ctx.fillRect(x, 0, lineWidth, myGameArea.canvas.height); // left edge
     ctx.fillRect(x + minDuration, 0, lineWidth, 
       myGameArea.canvas.height); // right edge
-
-    /*
-    ctx.strokeStyle = "black";
-    ctx.lineWidth = 1;
-
-    ctx.beginPath();
-    ctx.moveTo(x, 0 + ctx.lineWidth);
-    ctx.lineTo(x + minDuration, 0);
-    ctx.stroke();
-    ctx.lineTo(x + minDuration, myGameArea.canvas.height);
-    ctx.stroke();
-    ctx.lineTo(0, myGameArea.canvas.height);
-    ctx.stroke();
-
-    //ctx.lineWidth = 5;
-    //ctx.strokeStyle = "black";
-    //ctx.stroke();
-    */
     
     // increment i
     i++;
   }
-
-  // draw pointer
-  //ctx.fillStyle = "red";
-  //ctx.fillRect(0, 0, noteWidth, myGameArea.canvas.height);
 }
 
 startGame();
