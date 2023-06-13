@@ -57,4 +57,14 @@ similar to:
 [radio baton](https://en.wikipedia.org/wiki/Radiodrum) by [Max Mathews](https://en.wikipedia.org/wiki/Max_Mathews) (1975, USA)
 - [demo](https://www.youtube.com/watch?v=3ZOzUVD4oLg&t=407s) from [Computer History Museum](https://www.computerhistory.org/collections/catalog/102702299)
 - on [CCRMA](https://ccrma.stanford.edu/radiobaton/)
-- configurations: (a) use one baton for dynamics, one baton for rhythm; (b) use each baton for a different instrument
+- configurations: (a) use one baton for dynamics, one baton for rhythm; (b) use each baton for a different instrument; (c) use one baton to control rhythm, one baton to control timbre
+
+[skwitch](https://www.youtube.com/watch?v=d7tk6MRaaEQ) by Benjaman Schögler (2018, UK)
+- press button to play notes
+- see also: https://en.wikipedia.org/wiki/Skoog
+
+[speech synthesis](https://www.youtube.com/watch?v=dBIjMYdX7bI) by Michael Krzyzaniak (2023, Norway)
+- press button on phone to play next note
+- shake phone up and down for vibrato
+- tilt for dynamics
+- [demo with piano accompaniment](https://youtu.be/dBIjMYdX7bI?t=553)
