@@ -54,4 +54,7 @@ similar to:
 [tapper](http://www.musanim.com/Tapper/) by [Stephen Malinowski](https://en.wikipedia.org/wiki/Stephen_Malinowski) (1988, USA, known for "music animation machine")
 - can be played on [computer keyboard](https://youtu.be/IKsGZCkoNr4?t=571) or connected to [midi keyboard](https://www.youtube.com/watch?v=gTlIYcg_LSQ) (see [official demonstration](https://www.youtube.com/watch?v=wKd4RyhivtI))
 
-[radio baton](https://www.youtube.com/watch?v=3ZOzUVD4oLg&t=407s) by [Max Mathews](https://en.wikipedia.org/wiki/Max_Mathews) (1975, USA)
+[radio baton](https://en.wikipedia.org/wiki/Radiodrum) by [Max Mathews](https://en.wikipedia.org/wiki/Max_Mathews) (1975, USA)
+- [demo](https://www.youtube.com/watch?v=3ZOzUVD4oLg&t=407s) from [Computer History Museum](https://www.computerhistory.org/collections/catalog/102702299)
+- on [CCRMA](https://ccrma.stanford.edu/radiobaton/)
+- configurations: (a) use one baton for dynamics, one baton for rhythm; (b) use each baton for a different instrument
